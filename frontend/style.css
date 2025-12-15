@@ -1,0 +1,300 @@
+body {
+  display: grid;
+  place-items: start center;   /* centers both ways */
+  height: 100vh;
+  margin: 0;
+  background-color: #010B1E;
+}
+.logo {
+
+  width: 300px;
+  height: 200px;
+  margin-top: 50px;
+ 
+}
+.brandname{
+
+font-family: 'Jockey', sans-serif;
+font-size: 40px;
+letter-spacing: -2px;
+color: #ECEBE4;
+ font-weight: bold;
+margin-left: 20px;
+margin-top: -10px;
+
+}
+.form-container{
+
+
+
+}
+.inputstuff{
+    margin-bottom: 40px;
+    
+}
+.namebox{
+  color: #ECEBE4;
+  font-size: 20px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  font-family:'Jockey', sans-serif ;
+ 
+}
+.inputstuff input{
+border: none;
+outline: none;
+width: 930px;
+height: 70px;
+border-radius: 25px;
+background-color: #C4D3EF;
+opacity: 74%;
+box-shadow: 4px 4px 6px rgba(120, 198, 163, 0.8); 
+
+}
+.inputstuff input::placeholder {
+  color: #000000;        
+  font-family: 'jost', sans-serif; 
+  font-size: 20px;           
+  font-weight: 500;         
+  opacity: 47%;                
+}
+.loginb{
+    display: block;
+width: 400px;
+height: 50px;
+margin:  auto;
+border-radius: 30px;
+ font-size: 16px;                  
+  font-family: 'Jockey', sans-serif; 
+  font-weight: bold;                 
+  color: #ffffff;
+  background-color: #023E7D;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  border: none;
+  outline: none;
+  box-shadow: 0 4px 6px rgba(120, 198, 163, 0.8); 
+
+}
+.downE {
+    display: block;
+     margin:  auto;
+     width: 400px;
+     margin-top: 30px;
+color: #000000;        
+  font-family: 'jost', sans-serif; 
+  font-size: 20px;           
+  font-weight: 500;         
+      
+}
+.signn{
+
+font-family: 'jost', sans-serif; 
+  font-size: 20x;           
+  font-weight: bold;         
+color: #EC4067;
+text-decoration: none;
+
+
+    
+}
+
+
+
+
+.inputstuff2{
+  margin-top: -20px;
+    margin-bottom: 40px;
+    width: 940px;
+    display: block;
+    margin: auto;
+    
+}
+.inputstuff2 input{
+border: none;
+outline: none;
+width: 930px;
+height: 70px;
+border-radius: 25px;
+background-color: #C4D3EF;
+opacity: 74%;
+ margin-bottom: 40px;
+
+}
+.inputstuff2 input::placeholder {
+  color: #000000;        
+  font-family: 'jost', sans-serif; 
+  font-size: 20px;           
+  font-weight: 500;         
+  opacity: 47%;                
+}
+.signinb{
+    display: block;
+width: 400px;
+height: 50px;
+margin:  auto;
+border-radius: 30px;
+ font-size: 16px;                  
+  font-family: 'Jockey', sans-serif; 
+  font-weight: bold;                 
+  color: #ffffff;
+  background-color: #023E7D;
+  cursor: pointer;
+ box-shadow: 0 4px 6px rgba(120, 198, 163, 0.8); 
+  border: none;
+  outline: none;
+  margin-top: 20px;
+  
+
+}
+.lasttext{
+  color: #ECEBE4;
+}
+.navbar{
+background-color:#023E7D;
+width: 100%;
+height: 80px;
+box-shadow: 0 4px 6px rgba(120, 198, 163, 0.8); 
+
+}
+
+
+
+
+.navbarname1{
+  margin-top: 24px;
+  color: #ECEBE4;
+  font-size: 32px;                  
+  font-family: 'Jockey', sans-serif; 
+  font-weight: bold; 
+  margin-left: 24px;
+  background-color: #023E7D;
+  border-style: none;
+  margin-left: 8%;
+
+}
+.navbarsearchbutton{
+  margin-top: 18px;
+margin-left: 8%;
+  border: none;
+outline: none;
+width: 25%;
+height: 40px;
+border-radius: 25px;
+background-color: #C4D3EF;
+opacity: 100%;
+  padding-left: 40px; /* space for the icon */
+  background-image: url('search-icon.svg'); /* your icon file */
+  background-repeat: no-repeat;
+  background-position: 12px center; /* icon position inside input */
+  background-size: 18px 18px;
+
+}
+
+.navbarhome{
+  margin-top: 24px;
+  color: #979dac;
+  font-size: 24px;                  
+  font-family: 'Jockey', sans-serif; 
+     font-family: 'jost', sans-serif; 
+  margin-left: 24px;
+  background-color: #023E7D;
+  border-style: none;
+   margin-right: 2%;
+  margin-left: 8%;
+text-decoration: none; 
+}
+
+.navbarseller{
+  margin-top: 24px;
+  color: #979dac;
+  font-size: 24px;                  
+  font-family: 'Jockey', sans-serif; 
+     font-family: 'jost', sans-serif; 
+  margin-left: 24px;
+  background-color: #023E7D;
+  border-style: none;
+   margin-right: 2%;
+  margin-left: 2%;
+text-decoration: none; 
+}
+.navbarlogin{
+  margin-top: 24px;
+  color: #979dac;
+  font-size: 24px;                  
+  font-family: 'Jockey', sans-serif; 
+     font-family: 'jost', sans-serif; 
+  margin-left: 24px;
+  background-color: #023E7D;
+  border-style: none;
+   margin-right: 2%;
+  margin-left: 2%;
+text-decoration: none; 
+}
+.navbarhelp{
+  margin-top: 24px;
+  color: #979dac;
+  font-size: 24px;                  
+  font-family: 'Jockey', sans-serif; 
+     font-family: 'jost', sans-serif; 
+  margin-left: 24px;
+  background-color: #023E7D;
+  border-style: none;
+  margin-left: 2%;
+ text-decoration: none; 
+
+}
+
+.navbarhomem{
+  margin-top: 24px;
+  color: #ECEBE4;
+  font-size: 24px;                  
+  font-family: 'Jockey', sans-serif; 
+     font-family: 'jost', sans-serif; 
+  margin-left: 24px;
+  background-color: #023E7D;
+  border-style: none;
+   margin-right: 2%;
+  margin-left: 8%;
+text-decoration: none; 
+}
+
+.navbarsellerm{
+  margin-top: 24px;
+  color: #ECEBE4;
+  font-size: 24px;                  
+  font-family: 'Jockey', sans-serif; 
+     font-family: 'jost', sans-serif; 
+  margin-left: 24px;
+  background-color: #023E7D;
+  border-style: none;
+   margin-right: 2%;
+  margin-left: 2%;
+text-decoration: none; 
+}
+.navbarloginm{
+  margin-top: 24px;
+ color: #ECEBE4;
+  font-size: 24px;                  
+  font-family: 'Jockey', sans-serif; 
+     font-family: 'jost', sans-serif; 
+  margin-left: 24px;
+  background-color: #023E7D;
+  border-style: none;
+   margin-right: 2%;
+  margin-left: 2%;
+text-decoration: none; 
+}
+.navbarhelpm{
+  margin-top: 24px;
+ color: #ECEBE4;
+  font-size: 24px;                  
+  font-family: 'Jockey', sans-serif; 
+     font-family: 'jost', sans-serif; 
+  margin-left: 24px;
+  background-color: #023E7D;
+  border-style: none;
+  margin-left: 2%;
+ text-decoration: none; 
+
+}
