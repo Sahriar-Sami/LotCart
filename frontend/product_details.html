@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LotKart - Product Details</title>
+    <link rel="stylesheet" href="product_details.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">LotKart</div>
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search">
+        <img src="search-icon.svg" alt="Search" class="search-icon" id="searchIcon">
+    </div>
+ <nav>
+    <a href="home.html">Home</a>
+    <a href="log_in_worker.html">Worker</a>
+    <a href="login_seller.html">Seller account</a>
+    <a href="log_in.html">Log out</a>
+    <a href="orders.html">Your orders</a>
+    <div class="nav-balance">
+        Balance: $<span id="userBalance">0.00</span>
+    </div>
+</nav>
+</header>
+
+<div class="container">
+    <div class="product-image">
+        <img id="displayImg" src="placeholder.jpg" alt="Product">
+    </div>
+
+    <div class="product-details">
+        <h2 id="displayDescription">Product Description</h2>
+        <p>Estimated delivery time: <span id="displayDate">--/--/----</span></p>
+        <p>Seller: <span id="displaySeller">Loading...</span> (<span id="displayVerified">no</span>)</p>
+        <p>Vaid: <span id="displayVaid">#000000</span></p>
+
+        <h3>Price: $<span id="displayPrice">0</span></h3>
+
+        <div class="tags" id="tagContainer"></div>
+    </div>
+
+    <div class="order-section">
+        <button id="orderBtn">Order</button>
+    </div>
+
+    <div class="progress-section">
+        <div class="progress-text">
+            <span id="displayOrdered">0</span> / <span id="displayQuantity">0</span>
+        </div>
+        <div class="progress-bar">
+            <div id="progressFill" class="progress-fill" style="width: 0%;"></div>
+        </div>
+    </div>
+</div>
+
+<script src="product_details.js"></script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>LotKart - Seller Registration</title>
+    <link rel="stylesheet" href="sign_in_seller.css" />
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="logo.png" width="150" height="150" alt="Logo" />
+            <p class="brandname">LotKart Seller</p>
+        </div>
+
+        <form id="signupForm">
+            <input type="text" id="sellerName" placeholder="Name" required />
+            <input type="text" id="homeCountry" placeholder="Home Country" required />
+           
+            <input type="email" id="email" placeholder="Email" required />
+            <input type="password" id="password" placeholder="Password" required />
+            
+            <div class="password-box">
+                <input type="password" id="rePassword" placeholder="Confirm password" required />
+            </div>
+
+            <input type="text" id="description" placeholder="Description (Optional)" />
+
+            <button type="submit">Sign in</button>
+        </form>
+    </div>
+
+    <script src="sign_in_seller.js"></script>
+</body>
+</html>

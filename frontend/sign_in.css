@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+  
+body {
+    height: 100vh;
+    background: radial-gradient(circle at top, #0b1c3d, #020617);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.container {
+    width: 380px;
+    padding: 20px;
+    max-height: 95vh;
+    overflow-y: auto; /* Adds scrollbar if fields go off screen */
+}
+
+/* Hide the ugly scrollbar but keep functionality */
+.container::-webkit-scrollbar {
+    width: 0px;
+}
+
+form input {
+    /* Slightly smaller padding to fit more fields */
+    padding: 15px; 
+    margin: 8px 0;
+}
+  
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+  
+.logo img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+}
+  
+.brandname {
+    margin-top: 10px;
+    font-size: 26px;
+    font-weight: 600;
+    color: white;
+}
+  
+form input {
+    width: 100%;
+    padding: 18px;
+    margin: 12px 0;
+    border: none;
+    border-radius: 40px;
+    background: #cddbf2;
+    font-size: 16px;
+    outline: none;
+}
+  
+.password-box {
+    position: relative;
+}
+  
+.password-box span {
+    position: absolute;
+    right: 22px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+  
+button {
+    margin-top: 30px;
+    width: 100%;
+    padding: 18px;
+    border: none;
+    border-radius: 40px;
+    background: #0a3d78;
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+}
+  
+button:hover {
+    background: #0d4c96;
+}
+  

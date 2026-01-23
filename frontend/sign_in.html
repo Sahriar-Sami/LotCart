@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>LotKart - Sign Up</title>
+    <link rel="stylesheet" href="sign_in.css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="logo.png" width="120" height="120" alt="Logo" />
+            <p class="brandname">LotKart</p>
+        </div>
+
+        <form id="signupForm">
+            <input type="text" id="userName" placeholder="Full Name" required />
+            <input type="email" id="userEmail" placeholder="Email Address" required />
+            <input type="tel" id="userPhone" placeholder="Phone Number" required />
+            <input type="number" id="userBank" placeholder="Bank Account Number" required />
+            <input type="text" id="userAddress" placeholder="Home/Office Address" required />
+            <input type="number" id="userAmount" placeholder="Initial Deposit Amount" required />
+            
+            <input type="password" id="userPass" placeholder="Password" required />
+            <div class="password-box">
+                <input type="password" id="rePassword" placeholder="Confirm Password" required />
+                <span id="togglePassword">👁️</span>
+            </div>
+
+            <button type="submit" id="signInBtn">Sign in</button>
+        </form>
+    </div>
+
+    <script src="sign_in.js"></script>
+</body>
+</html>

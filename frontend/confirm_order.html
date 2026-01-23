@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LotKart - Confirm Order</title>
+    <link rel="stylesheet" href="confirm_order.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">LotKart</div>
+<nav>
+    <a href="home.html">Home</a>
+    <a href="log_in_worker.html">Worker</a>
+    <a href="login_seller.html">Seller account</a>
+    <a href="log_in.html">Log out</a>
+    <a href="orders.html">Your orders</a>
+    <div class="nav-balance">
+        Balance: $<span id="userBalance">0.00</span>
+    </div>
+</nav>
+</header>
+
+<div class="main">
+    <div class="progress-container">
+        <span class="count" id="displayProgressText">0/0</span>
+        <div class="progress-bar">
+            <div id="progressFill" class="progress-fill" style="width: 0%;"></div>
+        </div>
+    </div>
+    
+    <p class="info">
+        <b>Payment method:</b> Pay product price with confirmation payment. 
+        <span class="red">Cancellations lose the confirmation amount.</span>
+    </p>
+
+    <div class="table">
+        <div class="row head">
+            <span>Product</span>
+            <span>Cost</span>
+        </div>
+
+        <div class="row">
+            <span>
+                Leverage
+                <small>Returned after confirmation</small>
+            </span>
+            <span id="displayLeverage">$3</span>
+        </div>
+
+        <div class="row">
+            <span>
+                <b id="displayProductName">Product Name</b>
+                <div class="qty">
+                    <button onclick="changeQty(-1)">-</button>
+                    <span id="qty">1</span>
+                    <button onclick="changeQty(1)">+</button>
+                </div>
+            </span>
+            <span id="productCost">$0</span>
+        </div>
+
+        <div class="row total">
+            <span>Total</span>
+            <span id="total">$0</span>
+        </div>
+    </div>
+
+    <button class="checkout" id="checkoutBtn">Checkout</button>
+</div>
+
+<script src="confirm_order.js"></script>
+</body>
+</html>

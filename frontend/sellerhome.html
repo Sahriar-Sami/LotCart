@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LotKart - Seller Home</title>
+    <link rel="stylesheet" href="sellerhome.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">LotKart</div>
+
+    <nav>
+        <a href="sellerhome.html">Home</a>
+        <a href="sell_post.html">New Post</a>
+  
+        <a href="log_in.html">Log out</a>
+        <a href="help.html">Help</a>
+    </nav>
+</header>
+
+<div class="container">
+    <section class="main-content">
+        <div class="results-header">
+            <h2>Your Active Listings</h2>
+            <p id="resultCount">Loading listings...</p>
+        </div>
+
+        <div class="products" id="productsContainer">
+            <div class="loading">Fetching your database records...</div>
+        </div>
+
+        <div class="pagination" id="pagination">
+            <button class="page-btn" id="prevPage">Previous</button>
+            <span id="pageInfo">Page 1 of 1</span>
+            <button class="page-btn" id="nextPage">Next</button>
+        </div>
+    </section>
+</div>
+
+<footer class="footer">
+    <div class="footer-bottom">
+        <p>&copy; 2026 LotKart Seller Portal. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="sellerhome.js"></script>
+</body>
+</html>
