@@ -1,0 +1,122 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\CODES\\Projects\\LotCart\\BackEnd\\LOTCART\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{53D22D9D-E094-4B70-83CA-4505B3096F35}|LOTCART\\LOTCART.csproj|e:\\codes\\projects\\lotcart\\backend\\lotcart\\lotcart\\views\\user\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{53D22D9D-E094-4B70-83CA-4505B3096F35}|LOTCART\\LOTCART.csproj|solutionrelative:lotcart\\views\\user\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53D22D9D-E094-4B70-83CA-4505B3096F35}|LOTCART\\LOTCART.csproj|e:\\codes\\projects\\lotcart\\backend\\lotcart\\lotcart\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53D22D9D-E094-4B70-83CA-4505B3096F35}|LOTCART\\LOTCART.csproj|solutionrelative:lotcart\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53D22D9D-E094-4B70-83CA-4505B3096F35}|LOTCART\\LOTCART.csproj|e:\\codes\\projects\\lotcart\\backend\\lotcart\\lotcart\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53D22D9D-E094-4B70-83CA-4505B3096F35}|LOTCART\\LOTCART.csproj|solutionrelative:lotcart\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53D22D9D-E094-4B70-83CA-4505B3096F35}|LOTCART\\LOTCART.csproj|e:\\codes\\projects\\lotcart\\backend\\lotcart\\lotcart\\views\\home\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{53D22D9D-E094-4B70-83CA-4505B3096F35}|LOTCART\\LOTCART.csproj|solutionrelative:lotcart\\views\\home\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53D22D9D-E094-4B70-83CA-4505B3096F35}|LOTCART\\LOTCART.csproj|e:\\codes\\projects\\lotcart\\backend\\lotcart\\lotcart\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53D22D9D-E094-4B70-83CA-4505B3096F35}|LOTCART\\LOTCART.csproj|solutionrelative:lotcart\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53D22D9D-E094-4B70-83CA-4505B3096F35}|LOTCART\\LOTCART.csproj|e:\\codes\\projects\\lotcart\\backend\\lotcart\\lotcart\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{53D22D9D-E094-4B70-83CA-4505B3096F35}|LOTCART\\LOTCART.csproj|solutionrelative:lotcart\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "E:\\CODES\\Projects\\LotCart\\BackEnd\\LOTCART\\LOTCART\\Views\\User\\Login.cshtml",
+              "RelativeDocumentMoniker": "LOTCART\\Views\\User\\Login.cshtml",
+              "ToolTip": "E:\\CODES\\Projects\\LotCart\\BackEnd\\LOTCART\\LOTCART\\Views\\User\\Login.cshtml",
+              "RelativeToolTip": "LOTCART\\Views\\User\\Login.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-15T16:09:36.206Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "E:\\CODES\\Projects\\LotCart\\BackEnd\\LOTCART\\LOTCART\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "LOTCART\\Controllers\\UserController.cs",
+              "ToolTip": "E:\\CODES\\Projects\\LotCart\\BackEnd\\LOTCART\\LOTCART\\Controllers\\UserController.cs",
+              "RelativeToolTip": "LOTCART\\Controllers\\UserController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-15T16:09:09.923Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\CODES\\Projects\\LotCart\\BackEnd\\LOTCART\\LOTCART\\Program.cs",
+              "RelativeDocumentMoniker": "LOTCART\\Program.cs",
+              "ToolTip": "E:\\CODES\\Projects\\LotCart\\BackEnd\\LOTCART\\LOTCART\\Program.cs",
+              "RelativeToolTip": "LOTCART\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-15T16:04:44.149Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "E:\\CODES\\Projects\\LotCart\\BackEnd\\LOTCART\\LOTCART\\Views\\Home\\Login.cshtml",
+              "RelativeDocumentMoniker": "LOTCART\\Views\\Home\\Login.cshtml",
+              "ToolTip": "E:\\CODES\\Projects\\LotCart\\BackEnd\\LOTCART\\LOTCART\\Views\\Home\\Login.cshtml",
+              "RelativeToolTip": "LOTCART\\Views\\Home\\Login.cshtml",
+              "ViewState": "AgIAAJQAAAAAAAAAAAAAAJoAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-15T16:01:43.454Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\CODES\\Projects\\LotCart\\BackEnd\\LOTCART\\LOTCART\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "LOTCART\\Views\\Home\\Index.cshtml",
+              "ToolTip": "E:\\CODES\\Projects\\LotCart\\BackEnd\\LOTCART\\LOTCART\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "LOTCART\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-15T16:01:02.957Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "E:\\CODES\\Projects\\LotCart\\BackEnd\\LOTCART\\LOTCART\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "LOTCART\\Controllers\\HomeController.cs",
+              "ToolTip": "E:\\CODES\\Projects\\LotCart\\BackEnd\\LOTCART\\LOTCART\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "LOTCART\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABQAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-15T16:00:45.178Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

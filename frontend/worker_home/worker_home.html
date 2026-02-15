@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LotKart - Worker Dashboard</title>
+    <link rel="stylesheet" href="worker_home.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">LotKart <span class="portal-tag">Worker</span></div>
+    
+    <nav>
+        <a href="log_in.html">User Login</a>
+        <a href="login_seller.html">Seller Login</a>
+    </nav>
+</header>
+
+<div class="container">
+
+    <aside class="sidebar">
+        <h3>Worker Menu</h3>
+        <button class="menu-btn active" id="btnPosts">Sell Posts</button>
+        <button class="menu-btn" id="btnTrans">Transaction History</button>
+        <button class="menu-btn" id="btnCancels">Cancel History</button>
+    </aside>
+
+    <section class="main-content">
+        
+        <div id="postSection" class="content-section">
+            <div class="results-header">
+                <h2>Active Sell Posts</h2>
+                <p>Manage and verify live product lots</p>
+            </div>
+            <div class="products" id="productsContainer">
+                </div>
+        </div>
+
+        <div id="transSection" class="content-section hidden">
+            <div class="results-header">
+                <h2>Transaction History</h2>
+                <p>Monitor all financial exchanges</p>
+            </div>
+            <div class="table-wrapper">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Trans ID</th>
+                            <th>Admin Acc</th>
+                            <th>Date</th>
+                            <th>Amount</th>
+                            <th>VAID</th>
+                            <th>Buyer Name</th>
+                            <th>Product SL</th>
+                        </tr>
+                    </thead>
+                    <tbody id="transTableBody">
+                        </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="cancelSection" class="content-section hidden">
+            <div class="results-header">
+                <h2>Cancel History</h2>
+                <p>Logged order cancellations and refunds</p>
+            </div>
+            <div class="table-wrapper">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Cancel ID</th>
+                            <th>Returned Amt</th>
+                            <th>Leverage</th>
+                            <th>Trans ID</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cancelTableBody">
+                        </tbody>
+                </table>
+            </div>
+        </div>
+
+    </section>
+
+</div>
+
+<script src="worker_home.js"></script>
+</body>
+</html>

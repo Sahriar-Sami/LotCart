@@ -1,0 +1,155 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: linear-gradient(180deg, #020824, #020b30);
+    color: #fff;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    padding: 15px 30px;
+    background: #0a3b78;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+.search-box {
+    position: relative;
+}
+
+.search-box input {
+    padding: 8px 35px 8px 12px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+}
+
+.search-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+nav {
+    margin-left: auto;
+}
+
+nav a {
+    color: #fff;
+    margin-left: 15px;
+    text-decoration: none;
+}
+
+.container {
+    display: flex;
+    padding: 40px;
+    gap: 40px;
+}
+
+.left {
+    width: 35%;
+}
+
+.image-box {
+    height: 250px;
+    border: 2px dashed #aaa;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.image-box span {
+    font-size: 40px;
+}
+
+.small-images {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.small-box {
+    width: 80px;
+    height: 80px;
+    border: 2px dashed #aaa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+}
+
+.tag-info {
+    color: #ff4f7a;
+    margin-bottom: 10px;
+}
+
+.tag-btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.publish-btn {
+    margin-top: 30px;
+    background: #0a6cff;
+    color: #fff;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 30px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.right {
+    width: 65%;
+}
+
+.right label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.right input,
+.right textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+textarea {
+    height: 100px;
+}
+
+.leverage {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.leverage span {
+    color: #00ff9d;
+}
+
+.note {
+    font-size: 14px;
+    opacity: 0.8;
+    margin-top: 10px;
+}

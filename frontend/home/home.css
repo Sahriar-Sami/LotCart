@@ -1,0 +1,525 @@
+/* ============================================================================
+   LOTKART HOME PAGE - COMPLETE CSS
+   ============================================================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: radial-gradient(circle, #06162f, #000814);
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ============================================================================
+   NAVBAR
+   ============================================================================ */
+
+.navbar {
+    background: #0a4a85;
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.nav-balance {
+    color: #4ade80; /* A nice green for money */
+    font-weight: bold;
+    font-size: 14px;
+    padding: 8px 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+}
+
+/* Ensure the nav stays aligned */
+nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.search-box {
+    position: relative;
+    flex: 1;
+    max-width: 500px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 10px 40px 10px 15px;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    background: #ffffff;
+}
+
+.search-box input:focus {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.search-icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.search-icon:hover {
+    transform: translateY(-50%) scale(1.1);
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+    margin-left: auto;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background 0.3s;
+    font-size: 14px;
+}
+
+nav a:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* ============================================================================
+   CONTAINER & LAYOUT
+   ============================================================================ */
+
+.container {
+    display: flex;
+    padding: 30px;
+    gap: 30px;
+    flex: 1;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* ============================================================================
+   SIDEBAR - FILTERS
+   ============================================================================ */
+
+.sidebar {
+    width: 260px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 15px;
+    height: fit-content;
+    position: sticky;
+    top: 90px;
+    backdrop-filter: blur(10px);
+}
+
+.sidebar h3 {
+    margin: 20px 0 10px;
+    font-size: 16px;
+    color: #cfe5e2;
+}
+
+.sidebar h3:first-child {
+    margin-top: 0;
+}
+
+.range {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.range span {
+    color: #cfe5e2;
+    font-size: 14px;
+}
+
+.sidebar input[type="number"],
+.sidebar input[type="date"],
+.sidebar select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    background: #cfe5e2;
+    font-size: 14px;
+    outline: none;
+    transition: background 0.3s;
+}
+
+.sidebar input[type="number"]:focus,
+.sidebar input[type="date"]:focus,
+.sidebar select:focus {
+    background: #ffffff;
+}
+
+.range input[type="number"] {
+    width: 45%;
+}
+
+.sort-btn,
+.clear-btn {
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.sort-btn {
+    background: darkred;
+    color: white;
+}
+
+.sort-btn:hover {
+    background: #b30000;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.clear-btn {
+    background: #555;
+    color: white;
+    margin-top: 10px;
+}
+
+.clear-btn:hover {
+    background: #777;
+}
+
+/* ============================================================================
+   MAIN CONTENT
+   ============================================================================ */
+
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.results-header {
+    margin-bottom: 20px;
+}
+
+.results-header h2 {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.results-header p {
+    color: #cfe5e2;
+    font-size: 14px;
+}
+
+/* ============================================================================
+   PRODUCTS GRID
+   ============================================================================ */
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.loading {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px;
+    font-size: 18px;
+    color: #cfe5e2;
+}
+
+.no-results {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px;
+    font-size: 18px;
+    color: #cfe5e2;
+}
+
+/* ============================================================================
+   PRODUCT CARD
+   ============================================================================ */
+
+.card {
+    background: #ddd;
+    border-radius: 15px;
+    overflow: hidden;
+    color: black;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+}
+
+.img-box {
+    height: 200px;
+    background: #e6e6e6;
+    overflow: hidden;
+    position: relative;
+}
+
+.product-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.card:hover .product-img {
+    transform: scale(1.1);
+}
+
+.img-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.card-body {
+    background: #7a8190;
+    padding: 15px;
+    color: white;
+}
+
+.card-body .title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-body p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.ordered-count {
+    color: #cfe5e2;
+}
+
+.location {
+    color: #ffd700;
+}
+
+.price {
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 8px;
+    color: #4ade80;
+}
+
+/* ============================================================================
+   PAGINATION
+   ============================================================================ */
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.page-btn {
+    padding: 10px 20px;
+    background: #0a4a85;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s;
+}
+
+.page-btn:hover:not(:disabled) {
+    background: #0d6ebd;
+}
+
+.page-btn:disabled {
+    background: #555;
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+#pageInfo {
+    color: #cfe5e2;
+    font-size: 14px;
+}
+
+/* ============================================================================
+   FOOTER
+   ============================================================================ */
+
+.footer {
+    background: #0a4a85;
+    margin-top: auto;
+    padding: 40px 30px 20px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-bottom: 30px;
+}
+
+.footer-section h4 {
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.footer-section p,
+.footer-section a {
+    color: #cfe5e2;
+    text-decoration: none;
+    display: block;
+    margin: 8px 0;
+    font-size: 14px;
+}
+
+.footer-section a:hover {
+    color: white;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 20px;
+    text-align: center;
+    color: #cfe5e2;
+    font-size: 14px;
+}
+
+/* ============================================================================
+   RESPONSIVE DESIGN
+   ============================================================================ */
+
+@media (max-width: 1024px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        position: static;
+    }
+
+    .products {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    nav {
+        width: 100%;
+        justify-content: space-around;
+        margin-left: 0;
+    }
+
+    nav a {
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+
+    .search-box {
+        max-width: 100%;
+    }
+
+    .products {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 15px;
+    }
+
+    .sidebar {
+        padding: 15px;
+    }
+
+    .container {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .products {
+        grid-template-columns: 1fr;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .results-header h2 {
+        font-size: 22px;
+    }
+}
+
+/* ============================================================================
+   UTILITY CLASSES
+   ============================================================================ */
+
+.hidden {
+    display: none;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.error-message {
+    color: #ff6b6b;
+    padding: 20px;
+    text-align: center;
+    background: rgba(255, 107, 107, 0.1);
+    border-radius: 10px;
+    margin: 20px 0;
+}

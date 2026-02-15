@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LotKart - Create Lot</title>
+    <link rel="stylesheet" href="sell_post.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">LotKart</div>
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search">
+        <img src="search-icon.svg" alt="Search" class="search-icon" id="searchIcon">
+    </div>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/worker">Worker</a>
+        <a href="/seller">Seller account</a>
+        <a href="/login">Log out</a>
+        <a href="/orders">Your orders</a>
+        <a href="/help">Help</a>
+    </nav>
+</header>
+
+<form id="lotCreationForm" class="container">
+    <div class="left">
+        <div class="image-box" id="mainImageContainer" onclick="document.getElementById('mainImageInput').click();">
+            <input type="file" id="mainImageInput" hidden accept="image/*">
+            <div id="mainImagePreview">
+                <span>+</span>
+                <p>Add primary picture</p>
+            </div>
+        </div>
+
+        <div class="small-images">
+            <div class="small-box" id="extraImg1" onclick="document.getElementById('extraInput1').click();">+</div>
+            <div class="small-box" id="extraImg2" onclick="document.getElementById('extraInput2').click();">+</div>
+            <div class="small-box" id="extraImg3" onclick="document.getElementById('extraInput3').click();">+</div>
+            <input type="file" id="extraInput1" hidden accept="image/*">
+            <input type="file" id="extraInput2" hidden accept="image/*">
+            <input type="file" id="extraInput3" hidden accept="image/*">
+        </div>
+
+        <p class="tag-info">Add tags so buyers can easily find your product.</p>
+        <button type="button" class="tag-btn" id="addTagsBtn">click to add +</button>
+
+        <button type="submit" class="publish-btn">Publish Lot</button>
+    </div>
+
+    <div class="right">
+        <label for="description">Add name</label>
+        <textarea id="description" name="description" maxlength="300" placeholder="Describe your wholesale lot..." required></textarea>
+
+        <label for="productQuantity">Number of products in Lot</label>
+        <input type="number" id="productQuantity" name="productQuantity" placeholder="e.g. 100" required>
+
+        <label for="lotPrice">Lot price ($)</label>
+        <input type="number" id="lotPrice" name="lotPrice" placeholder="Total price for the whole lot" required>
+
+        <label for="estimatedDate">Estimated time for reaching full amount</label>
+        <input type="date" id="estimatedDate" name="estimatedDate" required>
+
+        <label for="originCountry">Select the country you are selling from:</label>
+        <input type="text" id="originCountry" name="originCountry" placeholder="e.g. China" required>
+
+        <label for="targetCountry">Select the country u will sell this lot to:</label>
+        <input type="text" id="targetCountry" name="targetCountry" placeholder="e.g. Bangladesh" required>
+
+        <p class="leverage">Your leverage amount: <span id="leverageDisplay">$4</span></p>
+
+        <p class="note">
+            This amount will be given back if order confirms or time exceeds
+            more than 30 days of estimated time. This is only to prevent scam sell post.
+        </p>
+    </div>
+</form>
+
+<script src="sell_post.js"></script>
+</body>
+</html>

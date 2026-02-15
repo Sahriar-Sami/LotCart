@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "CJN4dTWrZyU=",
+  "success": true,
+  "projectFilePath": "E:\\CODES\\Projects\\LotCart\\BackEnd\\LOTCART\\LOTCART\\LOTCART.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\sazza\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.23.0\\microsoft.visualstudio.azure.containers.tools.targets.1.23.0.nupkg.sha512"
+  ],
+  "logs": []
+}

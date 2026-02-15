@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LotKart - Home Page</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">LotKart</div>
+
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search products, locations...">
+        <img src="search-icon.svg" alt="Search" class="search-icon" id="searchIcon">
+    </div>
+
+<nav>
+    <a href="home.html">Home</a>
+    <a href="log_in_worker.html">Worker</a>
+    <a href="login_seller.html">Seller account</a>
+    <a href="log_in.html">Log in</a>
+    <a href="orders.html">Your orders</a>
+    <div class="nav-balance">
+        Balance: $<span id="userBalance">0.00</span>
+    </div>
+</nav>
+</header>
+
+<div class="container">
+
+    <aside class="sidebar">
+        <h3>Price:</h3>
+        <div class="range">
+            <input type="number" id="minPrice" name="minPrice" placeholder="0$" min="0">
+            <span>to</span>
+            <input type="number" id="maxPrice" name="maxPrice" placeholder="1000$" min="0">
+        </div>
+
+        <h3>Seller Country:</h3>
+        <select id="sellerCountryFilter" name="sellerCountry">
+            <option value="">All Countries</option>
+            <option value="USA">USA</option>
+            <option value="UK">UK</option>
+            <option value="China">China</option>
+            <option value="India">India</option>
+            <option value="Germany">Germany</option>
+            <option value="Japan">Japan</option>
+        </select>
+
+        <h3>Destination Country:</h3>
+        <select id="destinationCountryFilter" name="destinationCountry">
+            <option value="">All Countries</option>
+            <option value="USA">USA</option>
+            <option value="UK">UK</option>
+            <option value="Canada">Canada</option>
+            <option value="Australia">Australia</option>
+            <option value="India">India</option>
+        </select>
+
+        <h3>Estimated delivery:</h3>
+        <input type="date" id="deliveryDate" name="estimatedDate">
+
+        <h3>Products Available:</h3>
+        <div class="range">
+            <input type="number" id="minOrders" name="minOrders" placeholder="5" min="0">
+            <span>to</span>
+            <input type="number" id="maxOrders" name="maxOrders" placeholder="100" min="0">
+        </div>
+
+        <button class="sort-btn" id="applyFiltersBtn">Apply Filters</button>
+        <button class="clear-btn" id="clearFiltersBtn">Clear All</button>
+    </aside>
+
+    <section class="main-content">
+        <div class="results-header">
+            <h2>Available Products</h2>
+            <p id="resultCount">Loading products...</p>
+        </div>
+
+        <div class="products" id="productsContainer">
+            <!-- Products will be loaded here dynamically by JavaScript -->
+            <div class="loading">Loading products...</div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination" id="pagination">
+            <button class="page-btn" id="prevPage">Previous</button>
+            <span id="pageInfo">Page 1 of 1</span>
+            <button class="page-btn" id="nextPage">Next</button>
+        </div>
+    </section>
+
+</div>
+
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h4>About LotKart</h4>
+            <p>Your trusted wholesale marketplace</p>
+        </div>
+        <div class="footer-section">
+            <h4>Quick Links</h4>
+            <a href="#">About Us</a>
+            <a href="#">Contact</a>
+            <a href="#">Terms of Service</a>
+        </div>
+        <div class="footer-section">
+            <h4>Support</h4>
+            <a href="#">Help Center</a>
+            <a href="#">FAQs</a>
+            <a href="#">Shipping Info</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 LotKart. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="home.js"></script>
+</body>
+</html>

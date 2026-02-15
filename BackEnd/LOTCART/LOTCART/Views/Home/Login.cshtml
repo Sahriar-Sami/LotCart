@@ -1,0 +1,186 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>LotKart - Log In Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            background: radial-gradient(circle at top, #0b1c3d, #020617);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .container {
+            width: 380px;
+            text-align: center;
+        }
+
+        .logo {
+            margin-bottom: 40px;
+        }
+
+            .logo img {
+                width: 110px;
+                height: 110px;
+                object-fit: contain;
+            }
+
+        .brandname {
+            margin-top: 10px;
+            font-size: 26px;
+            font-weight: 600;
+        }
+
+        form input {
+            width: 100%;
+            padding: 18px;
+            margin: 14px 0;
+            border: none;
+            border-radius: 40px;
+            background: #cddbf2;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .password-box {
+            position: relative;
+        }
+
+            .password-box span {
+                position: absolute;
+                right: 22px;
+                top: 50%;
+                transform: translateY(-50%);
+                cursor: pointer;
+            }
+
+        button {
+            margin: 35px 0 20px;
+            width: 100%;
+            padding: 18px;
+            border: none;
+            border-radius: 40px;
+            background: #0a3d78;
+            color: white;
+            font-size: 22px;
+            cursor: pointer;
+            box-shadow: 0 0 25px rgba(0, 140, 255, 0.4);
+        }
+
+            button:hover {
+                background: #0d4c96;
+            }
+
+        .create {
+            margin-top: 20px;
+            color: #aaa;
+        }
+
+            .create a {
+                text-decoration: none;
+            }
+
+            .create span {
+                color: #ff2f6d;
+                cursor: pointer;
+            }
+
+        .switch {
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            color: #ff2f6d;
+            font-size: 15px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="logo">
+            <img src="logo.png" alt="LotKart Logo" />
+            <p class="brandname">LotKart</p>
+        </div>
+
+        <form id="loginForm">
+            <input type="text" id="loginIdentifier" placeholder="Email or name" required />
+
+            <div class="password-box">
+                <input type="password" id="password" placeholder="Password" required />
+            </div>
+
+            <button type="submit">Log in</button>
+        </form>
+
+        <p class="create">
+            or create a new account.
+            <a href="sign_in.html"><span>sign in</span></a>
+        </p>
+
+        <div class="switch">
+            <a href="login_seller.html" style="text-decoration: none; color: inherit;">
+                <span id="switchToSeller">Switch to seller account</span>
+            </a>
+
+            <a href="log_in_worker.html" style="text-decoration: none; color: inherit;">
+                <span id="switchToWorker">Switch to worker account</span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // --- REDIRECTS ---
+        document.getElementById("switchToSeller").addEventListener("click", () => {
+            window.location.href = "login_seller.html";
+        });
+
+        document.getElementById("switchToWorker").addEventListener("click", () => {
+            window.location.href = "login_worker.html";
+        });
+
+        // --- LOGIN VERIFICATION FUNCTION ---
+        function verifyLogin(id, pass) {
+            // This mocks your database table.
+            // In your project, you'd fetch this data from your SQL Server.
+            const mockUser = {
+                name: "admin",
+                email: "admin@lotkart.com",
+                password: "123"
+            };
+
+            // Checks if the input matches either the name or the email
+            if ((id === mockUser.name || id === mockUser.email) && pass === mockUser.password) {
+                return 1; // User exists and password is correct
+            } else {
+                return 0; // Login failed
+            }
+        }
+
+        // --- FORM SUBMISSION ---
+        document.getElementById("loginForm").addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            const idValue = document.getElementById("loginIdentifier").value;
+            const passValue = document.getElementById("password").value;
+
+            if (verifyLogin(idValue, passValue) === 1) {
+                alert("Logged in 🔥");
+                window.location.href = "home.html"; // Send them home
+            } else {
+                alert("Invalid credentials. Try 'admin' and '123'");
+            }
+        });</script>
+</body>
+</html>
