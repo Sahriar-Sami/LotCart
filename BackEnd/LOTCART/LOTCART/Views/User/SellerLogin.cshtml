@@ -5,8 +5,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <title>LotKart - Log In Page</title>
-    <style>
+    <title>LotKart - Seller Login</title>
+  <style>
         * {
             margin: 0;
             padding: 0;
@@ -113,78 +113,66 @@
     <div class="container">
         <div class="logo">
             <img src="~/logo.png" alt="LotKart Logo" />
-            <p class="brandname">LotKart</p>
+            <p class="brandname">LotKart Seller</p>
         </div>
 
-        <form id="loginForm">
-            <input type="text" id="loginIdentifier" placeholder="Email or name" required />
+        <form id="sellerLoginForm">
+            <input type="text" id="sellerIdentifier" placeholder="Seller email or username" required />
 
             <div class="password-box">
-                <input type="password" id="password" placeholder="Password" required />
+                <input type="password" id="sellerPassword" placeholder="Password" required />
             </div>
 
-            <button type="submit">Log in</button>
+            <button type="submit">Seller Log in</button>
         </form>
 
         <p class="create">
-            or create a new account.
-            <a href="sign_in.html"><span>sign in</span></a>
+            New seller?
+            <a href="sign_in_seller.html"><span>Create seller account</span></a>
         </p>
 
         <div class="switch">
-            <a href="login_seller.html" style="text-decoration: none; color: inherit;">
-                <span id="switchToSeller">Switch to seller account</span>
-            </a>
-
-            <a href="log_in_worker.html" style="text-decoration: none; color: inherit;">
-                <span id="switchToWorker">Switch to worker account</span>
-            </a>
+            <span id="switchToUser">Switch to buyer account</span>
         </div>
     </div>
 
     <script>
-        // --- REDIRECTS ---
-        document.getElementById("switchToSeller").addEventListener("click", () => {
-            window.location.href = "login_seller.html";
+                // --- REDIRECTS ---
+        document.getElementById("switchToUser").addEventListener("click", () => {
+            window.location.href = "log_in.html";
         });
 
-        document.getElementById("switchToWorker").addEventListener("click", () => {
-            window.location.href = "login_worker.html";
-        });
-
-        // --- LOGIN VERIFICATION FUNCTION ---
-        function verifyLogin(id, pass) {
-            // This mocks your database table.
-            // In your project, you'd fetch this data from your SQL Server.
-            const mockUser = {
-                name: "admin",
-                email: "admin@lotkart.com",
-                password: "123"
+        // --- SELLER LOGIN VERIFICATION ---
+        function verifySellerLogin(id, pass) {
+            // This mocks your 'Sellers' table in SQL
+            const mockSeller = {
+                name: "seller1",
+                email: "seller@lotkart.com",
+                password: "456"
             };
 
-            // Checks if the input matches either the name or the email
-            if ((id === mockUser.name || id === mockUser.email) && pass === mockUser.password) {
-                return 1; // User exists and password is correct
+            if ((id === mockSeller.name || id === mockSeller.email) && pass === mockSeller.password) {
+                return 1; // Success
             } else {
-                return 0; // Login failed
+                return 0; // Fail
             }
         }
 
         // --- FORM SUBMISSION ---
-        document.getElementById("loginForm").addEventListener("submit", (e) => {
+        document.getElementById("sellerLoginForm").addEventListener("submit", (e) => {
             e.preventDefault();
 
-            const idValue = document.getElementById("loginIdentifier").value;
-            const passValue = document.getElementById("password").value;
+            const idValue = document.getElementById("sellerIdentifier").value;
+            const passValue = document.getElementById("sellerPassword").value;
 
-            if (verifyLogin(idValue, passValue) === 1) {
-                alert("Logged in 🔥");
-                window.location.href = "home.html"; // Send them home
+            if (verifySellerLogin(idValue, passValue) === 1) {
+                alert("Seller Login Successful! 🔥");
+                // Redirect to wherever sellers manage their lots
+                window.location.href = "home.html";
             } else {
-                alert("Invalid credentials. Try 'admin' and '123'");
+                alert("Invalid Seller credentials. Try 'seller1' and '456'");
             }
         });
-
     </script>
 </body>
 </html>

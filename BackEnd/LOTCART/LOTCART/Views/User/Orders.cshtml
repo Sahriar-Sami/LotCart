@@ -1,0 +1,225 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LotKart - Your Orders</title>
+   <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: radial-gradient(circle, #06162f, #000814);
+            color: white;
+            min-height: 100vh;
+        }
+
+        /* --- FIXED NAVBAR TO MATCH OTHER PAGES --- */
+        .navbar {
+            background: #0a4a85;
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .search-box {
+            position: relative;
+            flex: 1;
+            max-width: 400px;
+        }
+
+            .search-box input {
+                width: 100%;
+                padding: 8px 35px 8px 12px;
+                border-radius: 20px;
+                border: none;
+                outline: none;
+            }
+
+        .search-icon {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+        }
+
+        nav {
+            display: flex;
+            gap: 15px;
+        }
+
+
+            nav a {
+                color: white;
+                text-decoration: none;
+                margin-left: 15px;
+                font-size: 14px;
+            }
+
+        /* --- TABLE STYLING --- */
+        .main-container {
+            padding: 40px 60px;
+        }
+
+        .order-table-wrapper {
+            margin-top: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .order-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+            .order-table th {
+                text-align: left;
+                padding: 15px;
+                border-bottom: 2px solid #0a4a85;
+                color: #cfe5e2;
+            }
+
+            .order-table td {
+                padding: 15px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+        .cancel-btn {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 13px;
+            transition: 0.3s;
+        }
+
+            .cancel-btn:hover {
+                background: #c0392b;
+            }
+   </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">LotKart</div>
+
+
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="log_in_worker.html">Worker</a>
+            <a href="sign_in.html">Seller account</a>
+            <a href="log_in.html">Log in</a>
+            <a href="orders.html">Your orders</a>
+
+        </nav>
+    </header>
+
+    <div class="main-container">
+        <h2>Your Order History</h2>
+
+        <div class="order-table-wrapper">
+            <table class="order-table">
+                <thead>
+                    <tr>
+                        <th>Product ID</th>
+                        <th>VAID</th>
+                        <th>Amount Paid</th>
+                        <th>Verification Key</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="orderList">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script >
+                // Example of the object you fetch from the database
+        let myOrders = [
+            { productid: "GPU-99", verificationkey: "KEY-123", vaid: 554321, amount: 303 },
+            { productid: "KBD-44", verificationkey: "KEY-999", vaid: 112233, amount: 85 }
+        ];
+
+        const LEVERAGE_PENALTY = 2;
+
+        function loadOrders() {
+            const tableBody = document.getElementById('orderList');
+            tableBody.innerHTML = "";
+
+            myOrders.forEach((order, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${order.productid}</td>
+                    <td>${order.vaid}</td>
+                    <td>$${order.amount}</td>
+                    <td><code>${order.verificationkey}</code></td>
+                    <td>
+                        <button class="cancel-btn" onclick="processCancellation(${index})">Cancel Order</button>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Function to generate the Transaction ID (Placeholder)
+        function calculateTransactionId() {
+            // Empty function as requested for your custom logic
+            return "";
+        }
+
+        // Function to update the user's balance in the UI/Database
+        function updateUserBalance(refundAmount) {
+            // This function is empty for your custom balance logic
+            // Usually: currentBalance += refundAmount
+        }
+
+        function processCancellation(index) {
+            const originalOrder = myOrders[index];
+            const LEVERAGE_PENALTY = 2;
+
+            // Create the 'canceled' object
+            const canceled = {
+                cancelid: Math.floor(100000 + Math.random() * 900000),
+                returnedamount: originalOrder.amount - LEVERAGE_PENALTY,
+                leverage: LEVERAGE_PENALTY,
+                buyeraccount: 0,
+                transactionid: calculateTransactionId(),
+                vaid: originalOrder.vaid
+            };
+
+            // Invoke the balance update function
+            updateUserBalance(canceled.returnedamount);
+
+            console.log("Cancellation Processed. Balance Update Invoked:", canceled);
+            alert(`Order Canceled. $${canceled.returnedamount} has been added back to your balance.`);
+
+            // Refresh the UI or send to DB
+        }
+
+        document.addEventListener('DOMContentLoaded', loadOrders);
+    </script>
+</body>
+</html>

@@ -1,0 +1,848 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LotKart - Home Page</title>
+   <style>
+        /* ============================================================================
+           LOTKART HOME PAGE - COMPLETE CSS
+           ============================================================================ */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: radial-gradient(circle, #06162f, #000814);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ============================================================================
+           NAVBAR
+           ============================================================================ */
+
+        .navbar {
+            background: #0a4a85;
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-balance {
+            color: #4ade80; /* A nice green for money */
+            font-weight: bold;
+            font-size: 14px;
+            padding: 8px 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Ensure the nav stays aligned */
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .search-box {
+            position: relative;
+            flex: 1;
+            max-width: 500px;
+        }
+
+            .search-box input {
+                width: 100%;
+                padding: 10px 40px 10px 15px;
+                border-radius: 25px;
+                border: none;
+                outline: none;
+                font-size: 14px;
+                background: #ffffff;
+            }
+
+                .search-box input:focus {
+                    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+                }
+
+        .search-icon {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+            .search-icon:hover {
+                transform: translateY(-50%) scale(1.1);
+            }
+
+        nav {
+            display: flex;
+            gap: 20px;
+            margin-left: auto;
+        }
+
+            nav a {
+                color: white;
+                text-decoration: none;
+                padding: 8px 15px;
+                border-radius: 5px;
+                transition: background 0.3s;
+                font-size: 14px;
+            }
+
+                nav a:hover {
+                    background: rgba(255, 255, 255, 0.2);
+                }
+
+        /* ============================================================================
+           CONTAINER & LAYOUT
+           ============================================================================ */
+
+        .container {
+            display: flex;
+            padding: 30px;
+            gap: 30px;
+            flex: 1;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* ============================================================================
+           SIDEBAR - FILTERS
+           ============================================================================ */
+
+        .sidebar {
+            width: 260px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            height: fit-content;
+            position: sticky;
+            top: 90px;
+            backdrop-filter: blur(10px);
+        }
+
+            .sidebar h3 {
+                margin: 20px 0 10px;
+                font-size: 16px;
+                color: #cfe5e2;
+            }
+
+                .sidebar h3:first-child {
+                    margin-top: 0;
+                }
+
+        .range {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+            .range span {
+                color: #cfe5e2;
+                font-size: 14px;
+            }
+
+        .sidebar input[type="number"],
+        .sidebar input[type="date"],
+        .sidebar select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: none;
+            background: #cfe5e2;
+            font-size: 14px;
+            outline: none;
+            transition: background 0.3s;
+        }
+
+            .sidebar input[type="number"]:focus,
+            .sidebar input[type="date"]:focus,
+            .sidebar select:focus {
+                background: #ffffff;
+            }
+
+        .range input[type="number"] {
+            width: 45%;
+        }
+
+        .sort-btn,
+        .clear-btn {
+            margin-top: 20px;
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .sort-btn {
+            background: darkred;
+            color: white;
+        }
+
+            .sort-btn:hover {
+                background: #b30000;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            }
+
+        .clear-btn {
+            background: #555;
+            color: white;
+            margin-top: 10px;
+        }
+
+            .clear-btn:hover {
+                background: #777;
+            }
+
+        /* ============================================================================
+           MAIN CONTENT
+           ============================================================================ */
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .results-header {
+            margin-bottom: 20px;
+        }
+
+            .results-header h2 {
+                font-size: 28px;
+                margin-bottom: 8px;
+            }
+
+            .results-header p {
+                color: #cfe5e2;
+                font-size: 14px;
+            }
+
+        /* ============================================================================
+           PRODUCTS GRID
+           ============================================================================ */
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .loading {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 60px;
+            font-size: 18px;
+            color: #cfe5e2;
+        }
+
+        .no-results {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 60px;
+            font-size: 18px;
+            color: #cfe5e2;
+        }
+
+        /* ============================================================================
+           PRODUCT CARD
+           ============================================================================ */
+
+        .card {
+            background: #ddd;
+            border-radius: 15px;
+            overflow: hidden;
+            color: black;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+            .card:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+            }
+
+        .img-box {
+            height: 200px;
+            background: #e6e6e6;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .card:hover .product-img {
+            transform: scale(1.1);
+        }
+
+        .img-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-size: 48px;
+            font-weight: bold;
+        }
+
+        .card-body {
+            background: #7a8190;
+            padding: 15px;
+            color: white;
+        }
+
+            .card-body .title {
+                font-size: 16px;
+                font-weight: bold;
+                margin-bottom: 8px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .card-body p {
+                margin: 5px 0;
+                font-size: 14px;
+            }
+
+        .ordered-count {
+            color: #cfe5e2;
+        }
+
+        .location {
+            color: #ffd700;
+        }
+
+        .price {
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 8px;
+            color: #4ade80;
+        }
+
+        /* ============================================================================
+           PAGINATION
+           ============================================================================ */
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            padding: 20px 0;
+        }
+
+        .page-btn {
+            padding: 10px 20px;
+            background: #0a4a85;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+
+            .page-btn:hover:not(:disabled) {
+                background: #0d6ebd;
+            }
+
+            .page-btn:disabled {
+                background: #555;
+                cursor: not-allowed;
+                opacity: 0.5;
+            }
+
+        #pageInfo {
+            color: #cfe5e2;
+            font-size: 14px;
+        }
+
+        /* ============================================================================
+           FOOTER
+           ============================================================================ */
+
+        .footer {
+            background: #0a4a85;
+            margin-top: auto;
+            padding: 40px 30px 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-bottom: 30px;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #cfe5e2;
+            text-decoration: none;
+            display: block;
+            margin: 8px 0;
+            font-size: 14px;
+        }
+
+            .footer-section a:hover {
+                color: white;
+            }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 20px;
+            text-align: center;
+            color: #cfe5e2;
+            font-size: 14px;
+        }
+
+        /* ============================================================================
+           RESPONSIVE DESIGN
+           ============================================================================ */
+
+       @@media (max-width: 1024px) {
+            .container
+
+        {
+            flex-direction: column;
+        }
+
+        .sidebar {
+            width: 100%;
+            position: static;
+        }
+
+        .products {
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        }
+
+        }
+
+        @@media (max-width: 768px) {
+            .navbar
+
+        {
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        nav {
+            width: 100%;
+            justify-content: space-around;
+            margin-left: 0;
+        }
+
+            nav a {
+                padding: 8px 10px;
+                font-size: 12px;
+            }
+
+        .search-box {
+            max-width: 100%;
+        }
+
+        .products {
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .sidebar {
+            padding: 15px;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        }
+
+        @@media (max-width: 480px) {
+            .products
+
+        {
+            grid-template-columns: 1fr;
+        }
+
+        .logo {
+            font-size: 20px;
+        }
+
+        .results-header h2 {
+            font-size: 22px;
+        }
+
+        }
+
+        /* ============================================================================
+           UTILITY CLASSES
+           ============================================================================ */
+
+        .hidden {
+            display: none;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .error-message {
+            color: #ff6b6b;
+            padding: 20px;
+            text-align: center;
+            background: rgba(255, 107, 107, 0.1);
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+   </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">LotKart</div>
+
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search products, locations...">
+            <img src="~/search-icon.svg" alt="Search" class="search-icon" id="searchIcon">
+        </div>
+
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="log_in_worker.html">Worker</a>
+            <a href="login_seller.html">Seller account</a>
+            <a href="log_in.html">Log in</a>
+            <a href="orders.html">Your orders</a>
+            <div class="nav-balance">
+                Balance: $<span id="userBalance">0.00</span>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+
+        <aside class="sidebar">
+            <h3>Price:</h3>
+            <div class="range">
+                <input type="number" id="minPrice" name="minPrice" placeholder="0$" min="0">
+                <span>to</span>
+                <input type="number" id="maxPrice" name="maxPrice" placeholder="1000$" min="0">
+            </div>
+
+            <h3>Seller Country:</h3>
+            <select id="sellerCountryFilter" name="sellerCountry">
+                <option value="">All Countries</option>
+                <option value="USA">USA</option>
+                <option value="UK">UK</option>
+                <option value="China">China</option>
+                <option value="India">India</option>
+                <option value="Germany">Germany</option>
+                <option value="Japan">Japan</option>
+            </select>
+
+            <h3>Destination Country:</h3>
+            <select id="destinationCountryFilter" name="destinationCountry">
+                <option value="">All Countries</option>
+                <option value="USA">USA</option>
+                <option value="UK">UK</option>
+                <option value="Canada">Canada</option>
+                <option value="Australia">Australia</option>
+                <option value="India">India</option>
+            </select>
+
+            <h3>Estimated delivery:</h3>
+            <input type="date" id="deliveryDate" name="estimatedDate">
+
+            <h3>Products Available:</h3>
+            <div class="range">
+                <input type="number" id="minOrders" name="minOrders" placeholder="5" min="0">
+                <span>to</span>
+                <input type="number" id="maxOrders" name="maxOrders" placeholder="100" min="0">
+            </div>
+
+            <button class="sort-btn" id="applyFiltersBtn">Apply Filters</button>
+            <button class="clear-btn" id="clearFiltersBtn">Clear All</button>
+        </aside>
+
+        <section class="main-content">
+            <div class="results-header">
+                <h2>Available Products</h2>
+                <p id="resultCount">Loading products...</p>
+            </div>
+
+            <div class="products" id="productsContainer">
+                <!-- Products will be loaded here dynamically by JavaScript -->
+                <div class="loading">Loading products...</div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination" id="pagination">
+                <button class="page-btn" id="prevPage">Previous</button>
+                <span id="pageInfo">Page 1 of 1</span>
+                <button class="page-btn" id="nextPage">Next</button>
+            </div>
+        </section>
+
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About LotKart</h4>
+                <p>Your trusted wholesale marketplace</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="#">About Us</a>
+                <a href="#">Contact</a>
+                <a href="#">Terms of Service</a>
+            </div>
+            <div class="footer-section">
+                <h4>Support</h4>
+                <a href="#">Help Center</a>
+                <a href="#">FAQs</a>
+                <a href="#">Shipping Info</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 LotKart. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+                // ============================================================================
+        // LOTKART HOME PAGE - PROFESSIONAL DATABASE INTEGRATION
+        // ============================================================================
+
+        let allProducts = []; // This will hold your database results
+        let currentPage = 1;
+        const itemsPerPage = 12;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeEventListeners();
+            loadProducts(); // Fetches initial data
+        });
+
+        function initializeEventListeners() {
+            // Filter Buttons
+            document.getElementById('applyFiltersBtn').addEventListener('click', applyFilters);
+            document.getElementById('clearFiltersBtn').addEventListener('click', clearFilters);
+
+            // Search Logic
+            document.getElementById('searchIcon').addEventListener('click', handleSearch);
+            document.getElementById('searchInput').addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') handleSearch();
+            });
+
+            // Pagination
+            document.getElementById('prevPage').addEventListener('click', () => changePage(-1));
+            document.getElementById('nextPage').addEventListener('click', () => changePage(1));
+        }
+
+        // ============================================================================
+        // PRODUCT CARD GENERATOR (YOUR UPDATED FUNCTION)
+        // ============================================================================
+
+        function createProductCard(product) {
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.setAttribute('data-vaid', product.vaid);
+            card.onclick = () => viewProductDetails(product.vaid);
+
+            // Image handling (Varbinary to Blob)
+            let imageUrl = 'placeholder.jpg';
+            if (product.img) {
+                // SQL Varbinary comes as a Buffer/Uint8Array
+                const blob = new Blob([product.img], { type: 'image/jpeg' });
+                imageUrl = URL.createObjectURL(blob);
+            }
+
+            // --- MATH FOR UNIT PRICE ---
+            const total = parseFloat(product.totalPrice || product.lot_price) || 0;
+            const qty = parseInt(product.quantity || product.number_of_product) || 1;
+            const unitPrice = total / qty;
+
+            card.innerHTML = `
+                <div class="img-box">
+                    <img src="${imageUrl}" alt="${product.description}" class="product-img">
+                </div>
+                <div class="card-body">
+                    <p class="title">${product.description || 'Untitled Lot'}</p>
+                    <p class="ordered-count">
+                        Progress: <b>${product.ordered || 0} / ${qty}</b>
+                    </p>
+                    <p class="location">📍 ${product.sellerCountry || product.seller_country} → ${product.destinationCountry || product.destination_country}</p>
+                    <p class="price">$${unitPrice.toFixed(2)} <small style="font-size: 12px; color: #aaa;">per item</small></p>
+                </div>
+            `;
+
+            return card;
+        }
+
+        // ============================================================================
+        // FILTERING LOGIC
+        // ============================================================================
+
+        function applyFilters() {
+            const filters = {
+                minP: parseFloat(document.getElementById('minPrice').value) || 0,
+                maxP: parseFloat(document.getElementById('maxPrice').value) || Infinity,
+                sCountry: document.getElementById('sellerCountryFilter').value,
+                dCountry: document.getElementById('destinationCountryFilter').value,
+                deliveryDate: document.getElementById('deliveryDate').value,
+                minQty: parseInt(document.getElementById('minOrders').value) || 0,
+                maxQty: parseInt(document.getElementById('maxOrders').value) || Infinity
+            };
+
+            const filtered = allProducts.filter(p => {
+                const unitP = (p.totalPrice || p.lot_price) / (p.quantity || p.number_of_product);
+                const pQty = p.quantity || p.number_of_product;
+                const pDate = p.estimatedDate || p.estimated_date;
+
+                return unitP >= filters.minP &&
+                       unitP <= filters.maxP &&
+                       (!filters.sCountry || (p.sellerCountry || p.seller_country) === filters.sCountry) &&
+                       (!filters.dCountry || (p.destinationCountry || p.destination_country) === filters.dCountry) &&
+                       (pQty >= filters.minQty && pQty <= filters.maxQty) &&
+                       (!filters.deliveryDate || new Date(pDate) >= new Date(filters.deliveryDate));
+            });
+
+            currentPage = 1;
+            displayProducts(filtered);
+            updateResultCount(filtered.length);
+        }
+
+        function clearFilters() {
+            document.querySelectorAll('.sidebar input, .sidebar select').forEach(i => i.value = '');
+            displayProducts(allProducts);
+            updateResultCount(allProducts.length);
+        }
+
+        // ============================================================================
+        // UI HELPERS
+        // ============================================================================
+
+        function displayProducts(products) {
+            const container = document.getElementById('productsContainer');
+            container.innerHTML = '';
+
+            if (products.length === 0) {
+                container.innerHTML = '<div class="no-results">No products match your filters.</div>';
+                return;
+            }
+
+            const start = (currentPage - 1) * itemsPerPage;
+            const end = start + itemsPerPage;
+            const paginated = products.slice(start, end);
+
+            paginated.forEach(p => container.appendChild(createProductCard(p)));
+            updatePagination(products.length);
+        }
+
+        function updateResultCount(count) {
+            document.getElementById('resultCount').innerText = `${count} products found`;
+        }
+
+        function updatePagination(total) {
+            const totalPages = Math.ceil(total / itemsPerPage) || 1;
+            document.getElementById('pageInfo').innerText = `Page ${currentPage} of ${totalPages}`;
+            document.getElementById('prevPage').disabled = currentPage === 1;
+            document.getElementById('nextPage').disabled = currentPage === totalPages;
+        }
+
+        function changePage(dir) {
+            currentPage += dir;
+            displayProducts(allProducts);
+            window.scrollTo(0,0);
+        }
+
+        function viewProductDetails(vaid) {
+            localStorage.setItem('selectedLotVaid', vaid);
+            window.location.href = 'product_details.html';
+        }
+
+        function handleSearch() {
+            const term = document.getElementById('searchInput').value.toLowerCase();
+            const searched = allProducts.filter(p =>
+                (p.description || '').toLowerCase().includes(term) ||
+                (p.sellerCountry || p.seller_country || '').toLowerCase().includes(term)
+            );
+            displayProducts(searched);
+        }
+
+        // ============================================================================
+        // DATA LOADING (MOCK FOR NOW)
+        // ============================================================================
+
+        function loadProducts() {
+            // Replace this with your actual fetch('/api/lots') call
+            allProducts = [
+                {
+                    vaid: 554321,
+                    description: "High-End GPU Bulk Lot",
+                    lot_price: 15000,
+                    number_of_product: 100,
+                    ordered: 45,
+                    seller_country: "China",
+                    destination_country: "USA",
+                    estimated_date: "2026-05-20",
+                    img: null // Uint8Array goes here
+                }
+
+            ];
+            displayProducts(allProducts);
+            updateResultCount(allProducts.length);
+        }
+
+    </script>
+</body>
+</html>

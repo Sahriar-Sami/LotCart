@@ -1,0 +1,329 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LotKart - Create Lot</title>
+  <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(180deg, #020824, #020b30);
+            color: #fff;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            padding: 15px 30px;
+            background: #0a3b78;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            margin-right: 20px;
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+            .search-box input {
+                padding: 8px 35px 8px 12px;
+                border-radius: 20px;
+                border: none;
+                outline: none;
+            }
+
+        .search-icon {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+        }
+
+        nav {
+            margin-left: auto;
+        }
+
+            nav a {
+                color: #fff;
+                margin-left: 15px;
+                text-decoration: none;
+            }
+
+        .container {
+            display: flex;
+            padding: 40px;
+            gap: 40px;
+        }
+
+        .left {
+            width: 35%;
+        }
+
+        .image-box {
+            height: 250px;
+            border: 2px dashed #aaa;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+            .image-box span {
+                font-size: 40px;
+            }
+
+        .small-images {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .small-box {
+            width: 80px;
+            height: 80px;
+            border: 2px dashed #aaa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 25px;
+        }
+
+        .tag-info {
+            color: #ff4f7a;
+            margin-bottom: 10px;
+        }
+
+        .tag-btn {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .publish-btn {
+            margin-top: 30px;
+            background: #0a6cff;
+            color: #fff;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 30px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .right {
+            width: 65%;
+        }
+
+            .right label {
+                display: block;
+                margin-top: 15px;
+                margin-bottom: 5px;
+            }
+
+            .right input,
+            .right textarea {
+                width: 100%;
+                padding: 10px;
+                border-radius: 5px;
+                border: none;
+            }
+
+        textarea {
+            height: 100px;
+        }
+
+        .leverage {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+            .leverage span {
+                color: #00ff9d;
+            }
+
+        .note {
+            font-size: 14px;
+            opacity: 0.8;
+            margin-top: 10px;
+        }
+
+  </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">LotKart</div>
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search">
+            <img src="~/search-icon.svg" alt="Search" class="search-icon" id="searchIcon">
+        </div>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/worker">Worker</a>
+            <a href="/seller">Seller account</a>
+            <a href="/login">Log out</a>
+            <a href="/orders">Your orders</a>
+            <a href="/help">Help</a>
+        </nav>
+    </header>
+
+    <form id="lotCreationForm" class="container">
+        <div class="left">
+            <div class="image-box" id="mainImageContainer" onclick="document.getElementById('mainImageInput').click();">
+                <input type="file" id="mainImageInput" hidden accept="image/*">
+                <div id="mainImagePreview">
+                    <span>+</span>
+                    <p>Add primary picture</p>
+                </div>
+            </div>
+
+            <div class="small-images">
+                <div class="small-box" id="extraImg1" onclick="document.getElementById('extraInput1').click();">+</div>
+                <div class="small-box" id="extraImg2" onclick="document.getElementById('extraInput2').click();">+</div>
+                <div class="small-box" id="extraImg3" onclick="document.getElementById('extraInput3').click();">+</div>
+                <input type="file" id="extraInput1" hidden accept="image/*">
+                <input type="file" id="extraInput2" hidden accept="image/*">
+                <input type="file" id="extraInput3" hidden accept="image/*">
+            </div>
+
+            <p class="tag-info">Add tags so buyers can easily find your product.</p>
+            <button type="button" class="tag-btn" id="addTagsBtn">click to add +</button>
+
+            <button type="submit" class="publish-btn">Publish Lot</button>
+        </div>
+
+        <div class="right">
+            <label for="description">Add name</label>
+            <textarea id="description" name="description" maxlength="300" placeholder="Describe your wholesale lot..." required></textarea>
+
+            <label for="productQuantity">Number of products in Lot</label>
+            <input type="number" id="productQuantity" name="productQuantity" placeholder="e.g. 100" required>
+
+            <label for="lotPrice">Lot price ($)</label>
+            <input type="number" id="lotPrice" name="lotPrice" placeholder="Total price for the whole lot" required>
+
+            <label for="estimatedDate">Estimated time for reaching full amount</label>
+            <input type="date" id="estimatedDate" name="estimatedDate" required>
+
+            <label for="originCountry">Select the country you are selling from:</label>
+            <input type="text" id="originCountry" name="originCountry" placeholder="e.g. China" required>
+
+            <label for="targetCountry">Select the country u will sell this lot to:</label>
+            <input type="text" id="targetCountry" name="targetCountry" placeholder="e.g. Bangladesh" required>
+
+            <p class="leverage">Your leverage amount: <span id="leverageDisplay">$4</span></p>
+
+            <p class="note">
+                This amount will be given back if order confirms or time exceeds
+                more than 30 days of estimated time. This is only to prevent scam sell post.
+            </p>
+        </div>
+    </form>
+<script>
+        // Function to determine seller name
+        function getSellerName() {
+            return "Global_Trade_Co";
+        }
+
+        // Main Form Submission Logic
+        document.getElementById('lotCreationForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            // 1. Image Conversion
+            const imageFile = document.getElementById('mainImageInput').files[0];
+            let imageBinaryArray = null;
+            if (imageFile) {
+                const buffer = await imageFile.arrayBuffer();
+                imageBinaryArray = Array.from(new Uint8Array(buffer));
+            }
+
+            try {
+                // 2. Step One: Create the Virtual Account on the Server
+                // We send the limit and admin info first.
+                const vaResponse = await fetch('/api/create-virtual-account', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        adminaccount: 288,
+                        limit_amount: parseFloat(document.getElementById('lotPrice').value) || 0
+                    })
+                });
+
+                const vaResult = await vaResponse.json();
+
+                // This is the CRITICAL part:
+                // We grab the exact ID the database just generated.
+                const actualDbVaid = vaResult.vaid;
+
+                if (!actualDbVaid) throw new Error("Database failed to return a valid vaid.");
+
+                // 3. Step Two: Create the Seller Post using the REAL vaid
+                const postData = {
+                    number_of_product: parseInt(document.getElementById('productQuantity').value) || 0,
+                    lot_price: parseFloat(document.getElementById('lotPrice').value) || 0,
+                    estimated_date: document.getElementById('estimatedDate').value,
+                    destination_country: document.getElementById('targetCountry').value,
+                    name: document.getElementById('description').value,
+                    verified_status: 'no',
+                    sellername: getSellerName(),
+                    status: 'pending',
+                    assignedworkerid: 288,
+                    vaID: actualDbVaid, // Using the ID returned from the DB
+                    img: imageBinaryArray,
+                    orderd: 0
+                };
+
+                const postResponse = await fetch('/api/create-seller-post', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(postData)
+                });
+
+                if (postResponse.ok) {
+                    alert(`Success! Lot created with Database VAID: ${actualDbVaid}`);
+                }
+
+            } catch (error) {
+                console.error("Submission failed:", error);
+                alert("Error: Could not link the Virtual Account to the Post.");
+            }
+        });
+
+        // Helper for image previewing
+        function handlePreview(inputElement, previewId) {
+            if (!inputElement) return;
+            inputElement.addEventListener('change', function() {
+                const file = this.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        document.getElementById(previewId).innerHTML =
+                            `<img src="${e.target.result}" style="width:100%; height:100%; object-fit:cover;">`;
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+        }
+
+        handlePreview(document.getElementById('mainImageInput'), 'mainImagePreview');
+</script>
+</body>
+</html>

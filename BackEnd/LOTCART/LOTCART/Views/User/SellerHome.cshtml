@@ -1,0 +1,284 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LotKart - Seller Home</title>
+   <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: radial-gradient(circle, #06162f, #000814);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            background: #0a4a85;
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .search-box {
+            position: relative;
+            flex: 1;
+            max-width: 500px;
+        }
+
+            .search-box input {
+                width: 100%;
+                padding: 10px 15px;
+                border-radius: 25px;
+                border: none;
+                outline: none;
+            }
+
+        nav {
+            margin-left: auto;
+            display: flex;
+            gap: 20px;
+        }
+
+            nav a {
+                color: white;
+                text-decoration: none;
+                font-size: 14px;
+                padding: 8px 12px;
+                border-radius: 5px;
+            }
+
+                nav a:hover {
+                    background: rgba(255, 255, 255, 0.2);
+                }
+
+        /* MAIN CONTENT (NO SIDEBAR) */
+        .container {
+            padding: 40px;
+            max-width: 1500px;
+            margin: 0 auto;
+            width: 100%;
+            flex: 1;
+        }
+
+        .results-header {
+            margin-bottom: 30px;
+        }
+
+            .results-header h2 {
+                font-size: 32px;
+            }
+
+        /* GRID SYSTEM */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        /* CARDS */
+        .card {
+            background: #1e293b;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+            .card:hover {
+                transform: translateY(-5px);
+                border-color: #0a4a85;
+            }
+
+        .img-box {
+            height: 180px;
+            background: #334155;
+        }
+
+        .product-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .title {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .ordered-count {
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        .price {
+            color: #4ade80;
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        /* FOOTER */
+        .footer-bottom {
+            padding: 20px;
+            text-align: center;
+            background: #0a4a85;
+            font-size: 14px;
+        }
+   </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">LotKart</div>
+
+        <nav>
+            <a href="sellerhome.html">Home</a>
+            <a href="sell_post.html">New Post</a>
+
+            <a href="log_in.html">Log out</a>
+            <a href="help.html">Help</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <section class="main-content">
+            <div class="results-header">
+                <h2>Your Active Listings</h2>
+                <p id="resultCount">Loading listings...</p>
+            </div>
+
+            <div class="products" id="productsContainer">
+                <div class="loading">Fetching your database records...</div>
+            </div>
+
+            <div class="pagination" id="pagination">
+                <button class="page-btn" id="prevPage">Previous</button>
+                <span id="pageInfo">Page 1 of 1</span>
+                <button class="page-btn" id="nextPage">Next</button>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-bottom">
+            <p>&copy; 2026 LotKart Seller Portal. All rights reserved.</p>
+        </div>
+    </footer>
+<script>
+        // Function to determine seller name
+        function getSellerName() {
+            return "Global_Trade_Co";
+        }
+
+        // Main Form Submission Logic
+        document.getElementById('lotCreationForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            // 1. Image Conversion
+            const imageFile = document.getElementById('mainImageInput').files[0];
+            let imageBinaryArray = null;
+            if (imageFile) {
+                const buffer = await imageFile.arrayBuffer();
+                imageBinaryArray = Array.from(new Uint8Array(buffer));
+            }
+
+            try {
+                // 2. Step One: Create the Virtual Account on the Server
+                // We send the limit and admin info first.
+                const vaResponse = await fetch('/api/create-virtual-account', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        adminaccount: 288,
+                        limit_amount: parseFloat(document.getElementById('lotPrice').value) || 0
+                    })
+                });
+
+                const vaResult = await vaResponse.json();
+
+                // This is the CRITICAL part:
+                // We grab the exact ID the database just generated.
+                const actualDbVaid = vaResult.vaid;
+
+                if (!actualDbVaid) throw new Error("Database failed to return a valid vaid.");
+
+                // 3. Step Two: Create the Seller Post using the REAL vaid
+                const postData = {
+                    number_of_product: parseInt(document.getElementById('productQuantity').value) || 0,
+                    lot_price: parseFloat(document.getElementById('lotPrice').value) || 0,
+                    estimated_date: document.getElementById('estimatedDate').value,
+                    destination_country: document.getElementById('targetCountry').value,
+                    name: document.getElementById('description').value,
+                    verified_status: 'no',
+                    sellername: getSellerName(),
+                    status: 'pending',
+                    assignedworkerid: 288,
+                    vaID: actualDbVaid, // Using the ID returned from the DB
+                    img: imageBinaryArray,
+                    orderd: 0
+                };
+
+                const postResponse = await fetch('/api/create-seller-post', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(postData)
+                });
+
+                if (postResponse.ok) {
+                    alert(`Success! Lot created with Database VAID: ${actualDbVaid}`);
+                }
+
+            } catch (error) {
+                console.error("Submission failed:", error);
+                alert("Error: Could not link the Virtual Account to the Post.");
+            }
+        });
+
+        // Helper for image previewing
+        function handlePreview(inputElement, previewId) {
+            if (!inputElement) return;
+            inputElement.addEventListener('change', function() {
+                const file = this.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        document.getElementById(previewId).innerHTML =
+                            `<img src="${e.target.result}" style="width:100%; height:100%; object-fit:cover;">`;
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+        }
+
+        handlePreview(document.getElementById('mainImageInput'), 'mainImagePreview');
+</script>
+</body>
+</html>
